@@ -1,11 +1,16 @@
 <?php
-$tekst = '';
-$cenz = array('','','');
-$ile = count($cenz);
 
-echo "tekst przed";
-echo "$tekst";
-echo "tekst po";
+function cenz($zd, $niepSlowa) {
+    foreach ($niepSlowa as $slo) {
+        $gw = str_repeat('*', strlen($slo));
+        $zd = str_ireplace($slo, $gw, $zd);
+    }
+    return $zd;
+}
 
-for ($i = 0; $)
+$zd = "Zdanie z niepożądanym słowem.";
+$niepSlowa = array("niepożądanym", "słowem");
+$ocZdanie = cenz($zd, $niepSlowa);
+echo $ocZdanie;
+
 ?>
