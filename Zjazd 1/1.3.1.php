@@ -47,7 +47,15 @@ function maksimum_foreach($tablica) {
     return $maksimum;
 }
 
-$tablica = array(5, 10, 15, 20, 25);
+function generate_random_array($n) {
+    $arr = array();
+    for ($i = 0; $i < $n; $i++) {
+        $arr[] = rand(1, 100);
+    }
+    return $arr;
+}
+
+$tablica = generate_random_array(10);
 echo "For: " . maksimum_for($tablica) . "\n";
 echo "While: " . maksimum_while($tablica) . "\n";
 echo "Do while: " . maksimum_do_while($tablica) . "\n";
