@@ -14,8 +14,6 @@ function getNationality($country) {
         return "Nieznana narodowość";
     }
 }
-
-// Wywołujemy funkcję z nazwą kraju
 echo "Narodowość dla kraju Polska to: " . getNationality("Polska") . PHP_EOL;
 
 ?>
