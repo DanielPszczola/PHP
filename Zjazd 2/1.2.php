@@ -64,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dostawka = isset($_POST['dostawka']) ? true : false;
     $udogodnienia = isset($_POST['udogodnienia']) ? $_POST['udogodnienia'] : [];
 
-// wyświetlanie podsumowania rezerwacji
     echo "<h2>Podsumowanie rezerwacji</h2>";
     echo "<p>Ilość osób: $iloscOsob</p>";
     echo "<p>Imię: $imie</p>";
