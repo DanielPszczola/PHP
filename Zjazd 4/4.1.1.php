@@ -31,15 +31,19 @@
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $_SESSION['karta'] = $_POST['karta'];
-        $_SESSION['imie'] = $_POST['imie'];
-        $_SESSION['nazwisko'] = $_POST['nazwisko'];
-        $_SESSION['ilosc'] = $_POST['ilosc'];
+        $karta = $_POST['karta'];
+        $imie = $_POST['imie'];
+        $nazwisko = $_POST['nazwisko'];
+        $ilosc = $_POST['ilosc'];
+
+        $_SESSION['karta'] = $karta;
+        $_SESSION['imie'] = $imie;
+        $_SESSION['nazwisko'] = $nazwisko;
+        $_SESSION['ilosc'] = $ilosc;
 
         header('Location: 4.1.2.php');
         exit();
     }
-    session_write_close()
     ?>
 </form>
 </body>
