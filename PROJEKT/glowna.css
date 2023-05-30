@@ -1,0 +1,241 @@
+/* Resetowanie domyślnych stylów */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ogólne style dla strony */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  /*Header*/
+  header {
+    background-color: #444444; /* Inny kolor tła - przykład */
+    color: #ADCEFF;
+      text-shadow: 14px 16px 20px rgba(66, 68, 90, 1);
+    background-color: #555555;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Brush Script Std', cursive; /* Przykładowa czcionka */
+      background: linear-gradient(rgba(40, 40, 40, 0.9), rgba(40, 40, 40, 0.9)), url('PHOTOS/1.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  /*pasek nawigacyjny*/
+.nav-container {
+    background-color: #333;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    height: 40px;
+    -webkit-box-shadow: 0px 22px 24px -14px rgba(77, 92, 111, 1);
+    -moz-box-shadow: 0px 22px 24px -14px rgba(77, 92, 111, 1);
+    box-shadow: 0px 22px 24px -14px rgba(77, 92, 111, 1);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Dodano */
+    align-items: stretch;
+
+    height: 100%;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.login-link, .logout-link { /* Poprawiono */
+    margin-left: auto; /* Dodano */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+  .login-link {
+    margin-left: auto;
+  }
+  /*pole na posty*/
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+      flex-direction: row;
+      background: linear-gradient(rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.3)), url('PHOTOS/2.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+  }
+  main a{
+      text-decoration: none ;
+      color: black;
+  }
+
+.post {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border: none;
+    width: 400px;
+    height: 400px;
+    border-radius: 4px;
+    background-color: #555555;
+    -webkit-box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+    box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+}
+
+.post h2 {
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    height: 20px;
+}
+
+.post h5 {
+    font-size: 14px;
+    color: floralwhite;
+    margin-bottom: 15px;
+    float: left;
+    width: auto;
+}
+.postincomment form{
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 20px;
+    padding: 2px;
+}
+.postincomment input{
+    background-color: darkred;
+    border: 0px;
+    color: white;
+}
+.postincomment input:hover{
+    background-color: red;
+}
+
+.post p {
+    font-size: 18px;
+    color: honeydew;
+    height: 345px;
+    padding-top: 10px;
+    text-align: left;
+}
+  /* Button styles */
+.previous, .next {
+    position: fixed;
+    bottom: 10px;
+    height: 350px;
+    width: 100px;
+    line-height: 350px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    bottom: 25%;
+    background: linear-gradient(rgba(140, 140, 140, 0.4), rgba(128, 128, 128, 0.4));
+    text-decoration: none;
+    color: white;
+}
+
+.previous {
+    left: 10px;
+    float: left;
+}
+
+.next {
+    right: 10px;
+    float: right;
+}
+
+.previous:hover, .next:hover {
+    background-color: #555;
+    background: linear-gradient(rgba(100, 100, 100, 0.5), rgba(128, 128, 128, 0.5));
+}
+  /*footer*/
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+    /*loginpage*/
+    .loginpage form{
+        background: linear-gradient(rgba(100, 100, 100, 0.5), rgba(128, 128, 128, 0.5));
+        padding: 20px;
+    }
+    .loginpage .zaloguj{
+        width: 100%;
+        margin-top: 20px;
+        font-weight: bold;
+        background-color: gray;
+        border: 0;
+    }
+    .loginpage .zaloguj:hover{
+        background-color: #333333;
+        color: gray;
+    }
+    .loginpage h2{
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    /*commentpage*/
+    .comment p{
+        word-wrap: break-word;
+    }
+    .comment{
+        float: left;
+        width: 200px;
+        background: linear-gradient(rgba(100, 100, 100, 0.5), rgba(128, 128, 128, 0.5));
+        color: aliceblue;
+        -webkit-box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+        -moz-box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+        box-shadow: 0px 0px 28px 5px rgba(66, 68, 90, 1);
+    }
+    .postincomment{
+        width: 100%;
+    }
+    .comment-section{
+        width: 33%;
+    }
+    .commentinvidual{
+        padding: 20px;
+    }
