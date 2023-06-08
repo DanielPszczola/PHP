@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mój Blog</title>
+    <title>JustBLOG</title>
     <link rel="stylesheet" type="text/css" href="glowna.css">
     <meta charset="UTF-8">
 </head>
@@ -23,7 +23,7 @@ logOut();
             <li><a href="glowna.php">Main Page</a></li>
             <?php if (isUserLoggedIn()) : ?>
                 <li><a href="mypostspage.php">My Posts</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a href="accountpage.php">Account</a></li>
                 <li class="logout-link"><a href="?logout=true">Logout</a></li>
             <?php else : ?>
                 <li class="login-link"><a href="loginpage.php">Login</a></li>

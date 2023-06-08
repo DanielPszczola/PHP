@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mój Blog</title>
+  <title>JustBLOG</title>
   <link rel="stylesheet" type="text/css" href="glowna.css">
   <meta charset="UTF-8">
 </head>
@@ -19,7 +19,7 @@
     try {
 
         $db = getDatabaseConnection();
-        $query = "SELECT * FROM posts";
+        $query = "SELECT * FROM posts ORDER BY date DESC";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -28,27 +28,26 @@
         exit;
     }
 
-    $displayedPostIndex = null;
+    $requestedPostId = isset($_GET['id']) ? $_GET['id'] : null;
 
-    if (isset($_GET['id'])) {
-        $requestedPostId = $_GET['id'];
-        foreach ($posts as $index => $post) {
-            if ($post['id'] == $requestedPostId) {
-                $displayedPostIndex = $index;
-                break;
-            }
+    $displayedPost = null;
+    $displayedPostIndex = 0;
+    foreach ($posts as $index => $post) {
+        if ($post['id'] == $requestedPostId) {
+            $displayedPost = $post;
+            $displayedPostIndex = $index;
+            break;
         }
     }
 
-    usort($posts, function($a, $b) {
-        return strtotime($b['date']) - strtotime($a['date']);
-    });
-
-    if ($displayedPostIndex === null) {
+    // Jeśli nie znaleziono żądanego postu, użyj pierwszego postu jako domyślnego
+    if ($displayedPost === null) {
+        $displayedPost = $posts[0];
         $displayedPostIndex = 0;
     }
 
-    $displayedPost = $posts[$displayedPostIndex];
+    $previousPostId = $displayedPostIndex > 0 ? $posts[$displayedPostIndex - 1]['id'] : null;
+    $nextPostId = $displayedPostIndex < count($posts) - 1 ? $posts[$displayedPostIndex + 1]['id'] : null;
 ?>
   <header>
     <h1>Just BLOG!</h1>
@@ -60,7 +59,7 @@
               <li><a href="glowna.php">Main Page</a></li>
               <?php if (isUserLoggedIn()) : ?>
                   <li><a href="mypostspage.php">My Posts</a></li>
-                  <li><a href="#">Account</a></li>
+                  <li><a href="accountpage.php">Account</a></li>
                   <li class="logout-link"><a href="?logout=true">Logout</a></li>
               <?php else : ?>
                   <li class="login-link"><a href="loginpage.php">Login</a></li>
@@ -72,9 +71,8 @@
     <div class="main-section">
         <?php
         // Wyświetl przycisk "Previous", jeśli istnieje poprzedni post
-        if ($displayedPostIndex > 0) {
-            $previousPostId = $posts[$displayedPostIndex - 1]['id'];
-            echo '<a class="previous" href="?id=' . $previousPostId . '">Previous</a>';
+        if (isset($posts[$displayedPostIndex - 1])) {
+            echo '<a class="previous" href="?id=' . $posts[$displayedPostIndex - 1]['id'] . '">Previous</a>';
         }
         ?>
     </div>
@@ -88,9 +86,8 @@
     <div class="main-section">
         <?php
         // Wyświetl przycisk "Next", jeśli istnieje następny post
-        if ($displayedPostIndex < count($posts) - 1) {
-            $nextPostId = $posts[$displayedPostIndex + 1]['id'];
-            echo '<a class="next" href="?id=' . $nextPostId . '">Next</a>';
+        if (isset($posts[$displayedPostIndex + 1])) {
+            echo '<a class="next" href="?id=' . $posts[$displayedPostIndex + 1]['id'] . '">Next</a>';
         }
         ?>
     </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <title>Strona logowania</title>
+    <title>JustBLOG</title>
     <link rel="stylesheet" type="text/css" href="glowna.css">
     <meta charset="UTF-8">
 </head>
@@ -34,7 +34,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username=? AND password=?");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username=:username AND password=:password");
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
@@ -48,9 +48,6 @@
         } else {
             $_SESSION['error'] = "Nieprawidłowe dane logowania";
         }
-
-        $stmt->close();
-        $conn->close();
     }
     ?>
         <form method="post">
